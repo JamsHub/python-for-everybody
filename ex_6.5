@@ -1,0 +1,32 @@
+text = "X-DSPAM-Confidence:    0.8475"
+position1 = text.find(':')
+print(position1)
+position2 = text.find('0', position1)
+print(position2)
+y = text[position2:]
+#text[position1+1:position2+1]
+#y = text[20:30]
+fy = float(y)
+print(fy)
+
+############Refined Version###########
+text = "X-DSPAM-Confidence:    0.8475"
+position = text.find('0')
+y = text[position:]
+fy = float(y)
+print(fy)
+
+#####################
+text = "Hello world!"
+result = text[0:5] # 'Hello'
+#####################
+
+#######
+
+text = "X-DSPAM-Confidence:    0.8475"
+
+ipos = text.find(':') 
+piece = text[ipos+2:]
+value = float(piece)
+print(value)
+

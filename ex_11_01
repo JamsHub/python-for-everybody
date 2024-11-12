@@ -1,0 +1,22 @@
+import re
+name = input("Enter file:")
+if len(name) < 1:
+    name = "regex_sum_actual_data"
+handle = open(name)
+
+total_sum = 0
+
+for line in handle:
+    line = line.rstrip()
+    #extract string from line
+    extstr = re.findall('[0-9]+', line)    
+    #print(extstr)
+    #if not extstr: 
+        #continue
+    for num in extstr:
+        #int_extstr = int(num)
+        total_sum += int(num)
+print(total_sum)       
+
+
+#305888

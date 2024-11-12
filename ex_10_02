@@ -1,0 +1,72 @@
+name = input("Enter file:")
+if len(name) < 1:
+    name = "mbox-short2.txt"
+    
+handle = open(name)
+
+#histogram for the hours
+lst = list()
+counts = dict()
+
+#loop through each line in the file
+for line in handle:
+    if line.startswith('From '):
+        line = line.rstrip()
+        #make each line a list of words
+        words = line.split()
+        #print(words)
+        #time string is always at index 5
+        time = words[5]
+        #hour is anything before the column position
+        hour = time[0:2]
+        #populate the histogram: if hour is present, increment its value, if not add it to histogram
+        counts[hour] = counts.get(hour, 0) + 1
+
+    #find the column position 
+    #colPos = timestr.split(":")
+    
+    #hours = time[:colPos]       
+   
+#for key, val in counts.items():
+#lst = counts.items()
+#lst.sort()
+for key, val in counts.items():
+    tup = (key, val)                      
+    lst.append(tup)
+    
+#lst = sorted(lst)
+lst = sorted(lst)
+print(lst)
+
+for (key, val) in lst:
+    print(key, val)
+    
+############Final Submission##############
+name = input("Enter file:")
+if len(name) < 1:
+    name = "mbox-short.txt"
+handle = open(name)
+
+lst = list()
+counts = dict()
+
+for line in handle:
+    if line.startswith('From '):
+        line = line.rstrip()
+        words = line.split()
+        time = words[5]
+        hour = time[0:2]
+        counts[hour] = counts.get(hour, 0) + 1
+    
+for key, val in counts.items():
+    tup = (key, val)                      
+    lst.append(tup)
+
+lst = sorted(lst)
+
+for (key, val) in lst:
+    print(key, val)
+
+#lst = sorted(lst, reverse=True)
+
+##########################################

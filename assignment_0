@@ -1,0 +1,15 @@
+astr = 'Hello Bob'
+istr = 0
+try:
+    istr = int(astr)
+except:
+    istr = -1
+  
+astr = 'Hello Bob'
+istr = int(astr)   # invalid literal for int() with base 10: 'Hello Bob' on line 23
+print('First', istr)
+astr = '123'
+istr = int(astr)
+print('Second', istr)
+
+

@@ -1,0 +1,54 @@
+name = input("Enter file:")
+if len(name) < 1:
+    name = "mbox-short2.txt"
+handle = open(name)
+
+counts = dict()
+words = []
+
+for line in handle:
+    if not line.startswith('From '):
+        continue
+        words = line.rstrip().split()
+        words.append(word[1])
+        for word in words:
+            counts[word] = counts.get(word, 0) + 1
+            print(word)
+
+bigcount = None
+bigword = None 
+for word, count in counts.items():
+    if bigcount is None or count > bigcount:
+        bigword = word
+        bigcount = count
+          
+print(bigword, bigcount)
+
+########Working Version##############
+
+name = input("Enter file:")
+if len(name) < 1:
+    name = "mbox-short.txt"
+handle = open(name)
+counts = dict()
+
+for line in handle:
+    if not line.startswith('From '):
+        continue
+        line = line.rstrip()
+        words = line.split()
+        
+        for word in words:
+            counts[word] = counts.get(word, 0) + 1
+            print(counts)
+
+#Find the word with the largest count
+    
+bigword = None
+bigcount = None 
+for wordd, valeur in counts.items():
+    if bigcount is None or valeur > bigcount:
+        bigword = wordd
+        bigcount = valeur
+
+print(bigword, bigcount)

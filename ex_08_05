@@ -1,0 +1,40 @@
+fname = input("Enter file name: ")
+if len(fname) < 1:
+    fname = "mbox-short2.txt"
+
+fh = open(fname)
+count = 0
+
+for line in fh:
+    line = line.rstrip()
+    if not line.startswith('From '): 
+        continue
+    word = line.split()
+    #print(words)
+    count = count + 1
+    print(word[1])
+    
+print("There were", count, "lines in the file with From as the first word")
+
+###########Another way to solve exercise##############
+han = open('mbox-short.txt')
+
+for line in han:
+    line = line.rstrip()
+    wds = line.split()
+    
+    # guardian
+    if len(wds) < 3 or wds[0] != 'From' :
+        continue
+    print(wds[2])
+   
+ #######
+    #guardian in a compound statement
+    #if len(wds) < 3 # or wds[0] != 'From' :
+    
+    
+    #if line == '' :
+        
+    #if wds [0]  != 'From' :
+        #continue
+        
